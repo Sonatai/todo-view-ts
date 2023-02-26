@@ -6,20 +6,24 @@
                     v-model="form.name"
                     @change="() => updateList(form)"
                 />
-                <el-button class="button" text @click="deleteList(form)">
+                <el-button class="button" text @click="deleteList(form.id)">
                     Delete
                 </el-button>
             </div>
             <div class="card__body">
-                <TodoItem
-                    v-for="todoItem in form.todoItems"
-                    :key="todoItem"
-                    :value="todoItem.value"
-                    :label="todoItem.label"
-                    :id="form.id"
-                />
-            </div> </el-card
-    ></el-form>
+                <div v-if="form.todoItems.length > 0">
+                    <TodoItem
+                        v-for="todoItem in form.todoItems"
+                        :key="todoItem"
+                        :value="todoItem.value"
+                        :label="todoItem.label"
+                        :id="form.id"
+                    />
+                </div>
+                <button @click="addItem(form)">Add Todo</button>
+            </div>
+        </el-card></el-form
+    >
 </template>
 
 <script lang="ts">
@@ -69,12 +73,20 @@ export default {
         updateList(props: IProp): void {
             localStorage.setItem(props.id, JSON.stringify(props));
         },
-        deleteList(props: IProp): void {
-            localStorage.removeItem(props.id);
+        deleteList(id: string): void {
+            localStorage.removeItem(id);
 
             // TODO: Meh, this is bad. Research how to do it better later maybe
             // Have a look at Vuex.
             location.reload();
+        },
+        addItem(props: IProp): void {
+            props.todoItems.push({
+                label: '',
+                value: false,
+            });
+
+            localStorage.setItem(props.id, JSON.stringify(props));
         },
     },
 };

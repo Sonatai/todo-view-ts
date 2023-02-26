@@ -39,15 +39,7 @@ export default {
             const emptyList = {
                 id: nanoid().toString(),
                 name: '',
-                todoItems: [
-                    { value: false, label: 'Woap Woap' },
-                    { value: false, label: 'Woap Woap' },
-                    { value: false, label: 'Woap Woap' },
-                    { value: false, label: 'Woap Woap' },
-                    { value: false, label: 'Woap Woap' },
-                    { value: false, label: 'Woap Woap' },
-                    { value: false, label: 'Woap Woap' },
-                ],
+                todoItems: [],
             };
             localStorage.setItem(emptyList.id, JSON.stringify(emptyList));
 
