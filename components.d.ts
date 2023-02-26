@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
+    TodoItem: typeof import('./src/components/TodoItem/TodoItem.vue')['default']
     TodoList: typeof import('./src/components/TodoList/TodoList.vue')['default']
   }
 }

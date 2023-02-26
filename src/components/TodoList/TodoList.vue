@@ -11,23 +11,29 @@
                 </el-button>
             </div>
             <div class="card__body">
-                <div class="text item todo-item">item1</div>
-                <div class="text item todo-item">item1</div>
-                <div class="text item todo-item">item1</div>
-                <div class="text item todo-item">item1</div>
-                <div class="text item todo-item">item1</div>
-            </div>
-        </el-card></el-form
-    >
+                <TodoItem
+                    v-for="todoItem in form.todoItems"
+                    :key="todoItem"
+                    :value="todoItem.value"
+                    :label="todoItem.label"
+                    :id="form.id"
+                />
+            </div> </el-card
+    ></el-form>
 </template>
 
 <script lang="ts">
 import './styles.scss';
 import { reactive } from 'vue';
+import TodoItem from '../TodoItem/TodoItem.vue';
 
 interface IProp {
     name: string;
     id: string;
+    todoItems: {
+        label: string;
+        value: boolean;
+    }[];
 }
 
 export default {
@@ -40,11 +46,19 @@ export default {
             type: String,
             required: true,
         },
+        todoItems: {
+            type: Array<{
+                label: string;
+                value: boolean;
+            }>,
+            required: true,
+        },
     },
     setup: (props: IProp): any => {
         const form = reactive({
             name: props.name,
             id: props.id,
+            todoItems: props.todoItems,
         });
 
         return {
