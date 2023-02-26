@@ -1,9 +1,8 @@
 <script lang="ts">
 import 'element-plus/dist/index.css';
+import { nanoid } from 'nanoid';
 import TodoList from './components/TodoList/TodoList.vue';
 import './style.scss';
-import mockData from './mockData.json';
-import { nanoid } from 'nanoid';
 
 export default {
     methods: {

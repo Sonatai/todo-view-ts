@@ -6,7 +6,9 @@
                     v-model="form.name"
                     @change="() => updateList(form)"
                 />
-                <el-button class="button" text> Operation button </el-button>
+                <el-button class="button" text @click="deleteList(form)">
+                    Delete
+                </el-button>
             </div>
             <div class="card__body">
                 <div class="text item todo-item">item1</div>
@@ -52,6 +54,13 @@ export default {
     methods: {
         updateList(props: IProp): void {
             localStorage.setItem(props.id, JSON.stringify(props));
+        },
+        deleteList(props: IProp): void {
+            localStorage.removeItem(props.id);
+
+            // TODO: Meh, this is bad. Research how to do it better later maybe
+            // Have a look at Vuex.
+            location.reload();
         },
     },
 };
