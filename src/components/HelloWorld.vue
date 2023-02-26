@@ -1,9 +1,31 @@
-<script setup lang="ts">
-import { ref } from 'vue';
+<script lang="ts">
+import { ref, reactive } from 'vue';
 
-defineProps<{ msg: string }>();
+interface IProp {
+    msg?: string;
+    value: string;
+}
 
-const count = ref(0);
+export default {
+    props: {
+        msg: String,
+        value: {
+            type: String,
+            required: true,
+        },
+    },
+    setup: (props: IProp): any => {
+        const count = ref(0);
+        const form = reactive({
+            value: props.value,
+        });
+
+        return {
+            count,
+            form,
+        };
+    },
+};
 </script>
 
 <template>
@@ -14,6 +36,14 @@ const count = ref(0);
         <p>
             Edit
             <code>components/HelloWorld.vue</code> to test HMR
+        </p>
+        <p>
+            <el-form :model="form" label-width="120px">
+                <el-form-item label="sdfsdf">
+                    <el-input
+                        v-model="form.value"
+                        placeholder="Please input" /></el-form-item
+            ></el-form>
         </p>
     </div>
 
