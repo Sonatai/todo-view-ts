@@ -1,31 +1,48 @@
-<script setup lang="ts">
+<script lang="ts">
+import 'element-plus/dist/index.css';
+import TodoList from './components/TodoList/TodoList.vue';
 import './style.scss';
-import HelloWorld from './components/HelloWorld.vue';
+import mockData from './mockData.json';
+import { nanoid } from 'nanoid';
+
+export default {
+    methods: {
+        getAllListsItems(): any[] {
+            const arr: any[] = [];
+            const localStorageObj = { ...localStorage };
+            Object.keys(localStorageObj).forEach((key) =>
+                arr.push(JSON.parse(localStorageObj[key]))
+            );
+
+            return arr;
+        },
+        addListItem(): void {
+            const emptyList = { id: nanoid().toString(), name: '' };
+            localStorage.setItem(emptyList.id, JSON.stringify(emptyList));
+
+            // TODO: Meh, this is bad. Research how to do it better later maybe
+            // Have a look at Vuex.
+            location.reload();
+        },
+    },
+};
 </script>
 
 <template>
-    <div>
-        <a href="https://vitejs.dev" target="_blank">
-            <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-            <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-        </a>
+    <div class="common-layout">
+        <el-container class="main">
+            <el-header class="main__header">Header</el-header>
+            <el-main>
+                <button @click="addListItem">add list</button>
+                <div v-if="getAllListsItems().length > 0" class="main__content">
+                    <TodoList
+                        v-for="item in getAllListsItems()"
+                        :id="item.id"
+                        :key="item"
+                        :name="item.name"
+                    />
+                </div>
+            </el-main>
+        </el-container>
     </div>
-    <HelloWorld msg="Vite + Vue" value="What" />
 </template>
-
-<style scoped>
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>

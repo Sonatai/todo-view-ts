@@ -1,0 +1,108 @@
+[
+    {
+        "id": "1",
+        "name": "Haushalt 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Einkaufsliste",
+        "todoItems": [
+            { "label": "Äpfel", "value": false },
+            { "label": "Birnen", "value": false },
+            { "label": "🍩", "value": false },
+            { "label": "Waschmittel", "value": false },
+            { "label": "Salat", "value": false },
+            { "label": "Gurke", "value": false },
+            { "label": "Paprika", "value": false },
+            { "label": "Gebäck", "value": false },
+            { "label": "Mock Meat", "value": true },
+            { "label": "Avocado", "value": false },
+            { "label": "Bestechung für Katzen", "value": false },
+            { "label": "Snacks", "value": false }
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Renovierung",
+        "todoItems": [
+            { "label": "Neuen Esstisch", "value": false },
+            { "label": "Teller in bunt", "value": true }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Haushalt 2 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "5",
+        "name": "Haushalt 3 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "6",
+        "name": "Haushalt 4 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "7",
+        "name": "Haushalt 5 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "8",
+        "name": "Haushalt 6 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "9",
+        "name": "Haushalt 7 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    },
+    {
+        "id": "10",
+        "name": "Haushalt 8 🙃",
+        "todoItems": [
+            { "label": "Wäsche waschen", "value": false },
+            { "label": "Staubsaugen", "value": false },
+            { "label": "Staub wischen", "value": false },
+            { "label": "Wischen", "value": false }
+        ]
+    }
+]

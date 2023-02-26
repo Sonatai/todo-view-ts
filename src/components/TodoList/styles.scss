@@ -1,0 +1,18 @@
+.card {
+    width: 20rem;
+    margin: 0.5rem;
+    height: auto;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__headline {
+        align-self: center;
+    }
+
+    &__body {
+        padding-top: 0.25rem;
+    }
+}
