@@ -2,7 +2,7 @@
     &__header {
         position: sticky;
         top: 0;
-        background-color: green;
+        background-color: #c7d75b;
         display: flex;
         align-items: center;
 
@@ -24,4 +24,13 @@
         align-items: flex-start;
         justify-content: center;
     }
+}
+
+body {
+    background-color: #eef3ce;
+}
+
+.container {
+    margin-left: 10rem;
+    margin-right: 10rem;
 }

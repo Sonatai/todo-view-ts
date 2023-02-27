@@ -7,7 +7,7 @@
                     @change="() => updateList(form)"
                 />
                 <el-button class="button" text @click="deleteList(form.id)">
-                    Delete
+                    X
                 </el-button>
             </div>
             <div class="card__body">

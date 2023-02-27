@@ -10,8 +10,10 @@
                     >Git Repo</a
                 ></el-header
             >
-            <el-main>
-                <button @click="addListItem">add list</button>
+            <el-main class="container">
+                <div>
+                    <button @click="addListItem">add list</button>
+                </div>
                 <div v-if="getAllListsItems().length > 0" class="main__content">
                     <TodoList
                         v-for="item in getAllListsItems()"
