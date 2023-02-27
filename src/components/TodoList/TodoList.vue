@@ -12,13 +12,40 @@
             </div>
             <div class="card__body">
                 <div v-if="form.todoItems.length > 0">
-                    <TodoItem
-                        v-for="todoItem in form.todoItems"
-                        :key="todoItem"
+                    <!-- <TodoItem
+                        v-for="(todoItem, index) in form.todoItems"
+                        :key="index"
                         :value="todoItem.value"
                         :label="todoItem.label"
                         :id="form.id"
-                    />
+                    /> -->
+                    <div
+                        v-for="(todoItem, index) in form.todoItems"
+                        :key="index"
+                        class="text item todo-item"
+                    >
+                        <!-- $event has a wrong type. Real value has a checked ~> so I cast it as any for this example 😶 -->
+                        <input
+                            v-model="todoItem.value"
+                            type="checkbox"
+                            class="todo-item__checkbox"
+                            @click="
+                                ($event) =>
+                                    updateCheckbox(
+                                        form.id,
+                                        index,
+                                        ($event.target as any).checked
+                                    )
+                            "
+                        />
+                        <input
+                            v-model="todoItem.label"
+                            type="text"
+                            @change="
+                                updateLabel(form.id, index, todoItem.label)
+                            "
+                        />
+                    </div>
                 </div>
                 <button @click="addItem(form)">Add Todo</button>
             </div>
@@ -29,7 +56,6 @@
 <script lang="ts">
 import './styles.scss';
 import { reactive } from 'vue';
-import TodoItem from '../TodoItem/TodoItem.vue';
 
 interface IProp {
     name: string;
@@ -87,6 +113,24 @@ export default {
             });
 
             localStorage.setItem(props.id, JSON.stringify(props));
+        },
+        updateLabel(id: string, index: number, value: string): void {
+            const list = localStorage.getItem(id);
+            if (list) {
+                const listObj = JSON.parse(list);
+                listObj.todoItems[index].label = value;
+
+                localStorage.setItem(id, JSON.stringify(listObj));
+            }
+        },
+        updateCheckbox(id: string, index: number, value: boolean): void {
+            const list = localStorage.getItem(id);
+            if (list) {
+                const listObj = JSON.parse(list);
+                listObj.todoItems[index].value = value;
+
+                localStorage.setItem(id, JSON.stringify(listObj));
+            }
         },
     },
 };

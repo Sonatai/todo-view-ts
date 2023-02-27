@@ -16,3 +16,11 @@
         padding-top: 0.25rem;
     }
 }
+
+.todo-item {
+    margin-bottom: 0.25rem;
+
+    &__checkbox {
+        margin-right: 0.5rem;
+    }
+}

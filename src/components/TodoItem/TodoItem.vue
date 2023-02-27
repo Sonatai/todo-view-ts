@@ -5,7 +5,7 @@
             type="checkbox"
             class="todo-item__checkbox"
         />
-        <input v-model="props.label" type="text" />
+        <input v-model="props.label" type="text" @change="updateItem(props)" />
     </div>
 </template>
 
@@ -16,6 +16,7 @@ interface IProp {
     label: string;
     value: boolean;
     id: string;
+    index: number;
 }
 
 export default {
@@ -32,9 +33,25 @@ export default {
             type: String,
             required: true,
         },
+        index: {
+            type: Number,
+            required: true,
+        },
     },
     setup: (props: IProp): any => {
         return { props };
+    },
+    methods: {
+        updateItem(props: IProp): void {
+            const item = localStorage.getItem(props.id);
+            if (item) {
+                const itemObj = JSON.parse(item);
+                itemObj.todoItems[props.index].label = props.label;
+                itemObj.todoItems[props.index].value = props.value;
+
+                localStorage.setItem(props.id, JSON.stringify(itemObj));
+            }
+        },
     },
 };
 </script>
