@@ -12,6 +12,7 @@
             </div>
             <div class="card__body">
                 <div v-if="form.todoItems.length > 0">
+                    <!-- Meh doesnt work, dunno why. Maybe ref isn't pass down or something like this :( -->
                     <!-- <TodoItem
                         v-for="(todoItem, index) in form.todoItems"
                         :key="index"
@@ -45,6 +46,7 @@
                                 updateLabel(form.id, index, todoItem.label)
                             "
                         />
+                        <button @click="deleteItem(form.id, index)">X</button>
                     </div>
                 </div>
                 <button @click="addItem(form)">Add Todo</button>
@@ -130,6 +132,19 @@ export default {
                 listObj.todoItems[index].value = value;
 
                 localStorage.setItem(id, JSON.stringify(listObj));
+            }
+        },
+        deleteItem(id: string, index: number): void {
+            const list = localStorage.getItem(id);
+
+            if (list) {
+                const listObj = JSON.parse(list);
+                listObj.todoItems.splice(index, 1);
+                localStorage.setItem(id, JSON.stringify(listObj));
+
+                // TODO: Meh, this is bad. Research how to do it better later maybe
+                // Have a look at Vuex.
+                // location.reload();
             }
         },
     },
