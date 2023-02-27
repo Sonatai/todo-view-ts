@@ -1,7 +1,15 @@
 <template>
     <div class="common-layout">
         <el-container class="main">
-            <el-header class="main__header">Header</el-header>
+            <el-header class="main__header">
+                <img src="/pink_platypus.png" class="main__header--img" />
+                <a
+                    href="https://github.com/Sonatai/todo-vue-ts"
+                    target="_blank"
+                    class="main__header__link"
+                    >Git Repo</a
+                ></el-header
+            >
             <el-main>
                 <button @click="addListItem">add list</button>
                 <div v-if="getAllListsItems().length > 0" class="main__content">
