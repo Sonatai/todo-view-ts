@@ -31,7 +31,7 @@
 <script lang="ts">
 import 'element-plus/dist/index.css';
 import { nanoid } from 'nanoid';
-import TodoList from './components/TodoList/TodoList.vue';
+import './components/TodoList/TodoList.vue';
 import './style.scss';
 
 export default {

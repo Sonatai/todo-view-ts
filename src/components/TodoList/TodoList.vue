@@ -144,7 +144,7 @@ export default {
 
                 // TODO: Meh, this is bad. Research how to do it better later maybe
                 // Have a look at Vuex.
-                // location.reload();
+                location.reload();
             }
         },
     },
